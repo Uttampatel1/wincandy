@@ -26,14 +26,18 @@ def predict():
             Wind_Speed = data.get('wind_speed')
             Angle = data.get('angle')
             
-            # print(Shot_Distance)
+            print(Shot_Distance)
 
             # Convert the JSON data to a DataFrame
             new_sample = pd.DataFrame([{"shot_distance":int(Shot_Distance),"wind_speed":int(Wind_Speed),"angle":int(Angle)}])
+            
+            
+            
             print(new_sample ,'*********')
 
             # Make predictions on the new dataset using the loaded model
             predictions = loaded_model.predict((new_sample))
+            print(predictions)
 
             # Return the predictions as JSON
             return jsonify(predictions.tolist())
@@ -44,4 +48,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0",debug=True)    
