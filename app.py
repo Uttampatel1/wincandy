@@ -11,16 +11,22 @@ CORS(app)
 
 
 @app.route('/', methods=["GET", "POST"])
+def index():
+    return jsonify("input:'get request sent '")
+
+@app.route('/predict', methods=["POST"])
 def predict():
     if request.method == "POST":
         try:
             print("^^^^^^^^^^^")
             # Get the JSON data from the request
-            Shot_Distance = request.form.get("Shot Distance")
-            Wind_Speed = request.form.get("Wind Speed")
-            Angle = request.form.get("Angle")
+            data = request.json
+        
+            Shot_Distance = data.get('shot_distance')
+            Wind_Speed = data.get('wind_speed')
+            Angle = data.get('angle')
             
-            print(Shot_Distance)
+            # print(Shot_Distance)
 
             # Convert the JSON data to a DataFrame
             new_sample = pd.DataFrame([{"shot_distance":int(Shot_Distance),"wind_speed":int(Wind_Speed),"angle":int(Angle)}])
