@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 from flask_cors import CORS, cross_origin
 # Load the XGBoost model
-model_filename = 'xgb_model_fin.pkl'
+model_filename = 'widcd.pkl'
 loaded_model = joblib.load(model_filename)
 
 app = Flask(__name__)
