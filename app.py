@@ -29,9 +29,9 @@ def predict():
             print(Shot_Distance)
 
             # Convert the JSON data to a DataFrame
-            new_sample = pd.DataFrame([{"shot_distance":int(Shot_Distance),"wind_speed":int(Wind_Speed),"angle":int(Angle)}])
+            new_sample = pd.DataFrame([{"shot_distance":Shot_Distance,"wind_speed":Wind_Speed,"angle":Angle}])
             
-            
+    
             
             print(new_sample ,'*********')
 
